@@ -1,0 +1,9 @@
+.navbar-brand img {
+  max-height: 80px; /* Adjust as needed, slightly larger than the fixed height for flexibility */
+  height: auto; /* Ensure height adjusts based on max-height and width */
+  width: auto; /* Maintain aspect ratio */
+}
+
+.navbar {
+  min-height: 80px; /* Ensure the navbar has enough height to contain the logo */
+}

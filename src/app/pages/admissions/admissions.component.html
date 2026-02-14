@@ -69,19 +69,19 @@
     <div class="col-lg-6">
       <div class="card border-0 shadow-lg rounded-4 p-4 p-lg-5">
         <h3 class="fw-bold mb-4 text-center">Admission Inquiry</h3>
-        <form>
+        <form #admissionForm="ngForm" (ngSubmit)="submitForm(admissionForm)">
           <div class="mb-3">
             <label for="parentName" class="form-label text-muted">Parent's Name</label>
-            <input type="text" class="form-control bg-light border-0" id="parentName" placeholder="Enter full name">
+            <input type="text" name="parentName" ngModel required class="form-control bg-light border-0" id="parentName" placeholder="Enter full name">
           </div>
           <div class="mb-3">
             <label for="childName" class="form-label text-muted">Child's Name</label>
-            <input type="text" class="form-control bg-light border-0" id="childName" placeholder="Enter child's name">
+            <input type="text" name="childName" ngModel required class="form-control bg-light border-0" id="childName" placeholder="Enter child's name">
           </div>
           <div class="row mb-3">
             <div class="col-md-6">
               <label for="classApplying" class="form-label text-muted">Class Applying For</label>
-              <select class="form-select bg-light border-0" id="classApplying">
+              <select name="classApplying" ngModel required class="form-select bg-light border-0" id="classApplying">
                 <option selected>Select Class</option>
                 <option value="1">Class 1</option>
                 <option value="2">Class 2</option>
@@ -92,12 +92,12 @@
             </div>
             <div class="col-md-6">
               <label for="phone" class="form-label text-muted">Phone Number</label>
-              <input type="tel" class="form-control bg-light border-0" id="phone" placeholder="Enter phone number">
+              <input type="tel" name="phone" ngModel required class="form-control bg-light border-0" id="phone" placeholder="Enter phone number">
             </div>
           </div>
           <div class="mb-4">
             <label for="email" class="form-label text-muted">Email Address</label>
-            <input type="email" class="form-control bg-light border-0" id="email" placeholder="name@example.com">
+            <input type="email" name="email" ngModel required class="form-control bg-light border-0" id="email" placeholder="name@example.com">
           </div>
           <div class="d-grid">
             <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow-sm">Submit Inquiry</button>
