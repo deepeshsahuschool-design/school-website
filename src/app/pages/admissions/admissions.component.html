@@ -12,22 +12,22 @@
       <h3 class="fw-bold mb-4 text-primary">Admission Process</h3>
       <div class="timeline border-start border-3 border-light ps-4">
         <div class="mb-4 position-relative">
-          <div class="position-absolute start-0 top-0 translate-middle ms-0 bg-white border border-2 border-primary rounded-circle" style="width: 15px; height: 15px; left: -2px;"></div>
+          <!-- <div class="position-absolute start-0 top-0 translate-middle ms-0 bg-white border border-2 border-primary rounded-circle" style="width: 15px; height: 15px; left: -2px;"></div> -->
           <h5 class="fw-bold">1. Inquiry</h5>
           <p class="text-muted">Fill out the online inquiry form or visit the school office.</p>
         </div>
         <div class="mb-4 position-relative">
-          <div class="position-absolute start-0 top-0 translate-middle ms-0 bg-white border border-2 border-primary rounded-circle" style="width: 15px; height: 15px; left: -2px;"></div>
+          <!-- <div class="position-absolute start-0 top-0 translate-middle ms-0 bg-white border border-2 border-primary rounded-circle" style="width: 15px; height: 15px; left: -2px;"></div> -->
           <h5 class="fw-bold">2. Registration</h5>
           <p class="text-muted">Purchase the registration form and submit relevant documents.</p>
         </div>
         <div class="mb-4 position-relative">
-          <div class="position-absolute start-0 top-0 translate-middle ms-0 bg-white border border-2 border-primary rounded-circle" style="width: 15px; height: 15px; left: -2px;"></div>
+          <!-- <div class="position-absolute start-0 top-0 translate-middle ms-0 bg-white border border-2 border-primary rounded-circle" style="width: 15px; height: 15px; left: -2px;"></div> -->
           <h5 class="fw-bold">3. Interaction</h5>
           <p class="text-muted">An informal interaction with the child and parents.</p>
         </div>
         <div class="position-relative">
-          <div class="position-absolute start-0 top-0 translate-middle ms-0 bg-white border border-2 border-primary rounded-circle" style="width: 15px; height: 15px; left: -2px;"></div>
+          <!-- <div class="position-absolute start-0 top-0 translate-middle ms-0 bg-white border border-2 border-primary rounded-circle" style="width: 15px; height: 15px; left: -2px;"></div> -->
           <h5 class="fw-bold">4. Admission</h5>
           <p class="text-muted">Payment of fees and confirmation of admission.</p>
         </div>
@@ -42,6 +42,22 @@
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>Play Group</td>
+            <td>2 - 3 Years</td>
+          </tr>
+          <tr>
+            <td>Nursery</td>
+            <td>3 - 4 Years</td>
+          </tr>
+          <tr>
+            <td>Junior KG</td>
+            <td>4 - 5 Years</td>
+          </tr>
+          <tr>
+            <td>Senior KG</td>
+            <td>5 - 6 Years</td>
+          </tr>
           <tr>
             <td>Class 1</td>
             <td>5.5 - 6.5 Years</td>
@@ -82,13 +98,22 @@
             <div class="col-md-6">
               <label for="classApplying" class="form-label text-muted">Class Applying For</label>
               <select name="classApplying" ngModel required class="form-select bg-light border-0" id="classApplying">
-                <option selected>Select Class</option>
-                <option value="1">Class 1</option>
-                <option value="2">Class 2</option>
-                <option value="3">Class 3</option>
-                <option value="4">Class 4</option>
-                <option value="5">Class 5</option>
+                <option value="" disabled selected>Select Class</option>
+
+                <!-- Pre-Primary -->
+                <option value="PlayGroup">PlayGroup</option>
+                <option value="Nursery">Nursery</option>
+                <option value="Junior KG">Junior KG</option>
+                <option value="Senior KG">Senior KG</option>
+
+                <!-- Primary -->
+                <option value="Class 1">Class 1</option>
+                <option value="Class 2">Class 2</option>
+                <option value="Class 3">Class 3</option>
+                <option value="Class 4">Class 4</option>
+                <option value="Class 5">Class 5</option>
               </select>
+
             </div>
             <div class="col-md-6">
               <label for="phone" class="form-label text-muted">Phone Number</label>
