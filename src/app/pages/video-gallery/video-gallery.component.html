@@ -1,0 +1,23 @@
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h1 class="display-4 fw-bold text-primary">Video Gallery</h1>
+    <p class="lead text-muted">A collection of videos from our school.</p>
+  </div>
+
+  <div class="gallery-grid">
+    <div *ngFor="let video of videos; let i = index" class="gallery-item" (click)="openLightbox(i)">
+      <video [src]="video" muted preload="metadata"></video>
+      <div class="overlay">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLightboxOpen" class="lightbox-overlay" (click)="closeLightbox()">
+  <button class="lightbox-close" (click)="closeLightbox()">&times;</button>
+  <button class="lightbox-prev" (click)="prevVideo(); $event.stopPropagation();">&lsaquo;</button>
+  <button class="lightbox-next" (click)="nextVideo(); $event.stopPropagation();">&rsaquo;</button>
+  <div class="lightbox-content" (click)="$event.stopPropagation();">
+    <video [src]="videos[currentVideoIndex]" class="lightbox-video" controls autoplay></video>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h1 class="display-4 fw-bold text-primary">Photo Gallery</h1>
+    <p class="lead text-muted">A glimpse into our vibrant school life.</p>
+  </div>
+
+  <div class="gallery-grid">
+    <div *ngFor="let image of images; let i = index" class="gallery-item" (click)="openLightbox(i)">
+      <img [src]="image" [alt]="'Gallery image ' + (i + 1)">
+      <div class="overlay">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLightboxOpen" class="lightbox-overlay" (click)="closeLightbox()">
+  <button class="lightbox-close" (click)="closeLightbox()">&times;</button>
+  <button class="lightbox-prev" (click)="prevImage(); $event.stopPropagation();">&lsaquo;</button>
+  <button class="lightbox-next" (click)="nextImage(); $event.stopPropagation();">&rsaquo;</button>
+  <div class="lightbox-content" (click)="$event.stopPropagation();">
+    <img [src]="images[currentImageIndex]" class="lightbox-image">
+  </div>
+</div>

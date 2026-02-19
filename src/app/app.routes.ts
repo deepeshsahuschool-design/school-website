@@ -5,6 +5,8 @@ import { AcademicsComponent } from './pages/academics/academics.component';
 import { AdmissionsComponent } from './pages/admissions/admissions.component';
 import { FacultyComponent } from './pages/faculty/faculty.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { PhotoGalleryComponent } from './pages/photo-gallery/photo-gallery.component';
+import { VideoGalleryComponent } from './pages/video-gallery/video-gallery.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,5 +16,7 @@ export const routes: Routes = [
   { path: 'admissions', component: AdmissionsComponent },
   { path: 'faculty', component: FacultyComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'photo-gallery', component: PhotoGalleryComponent },
+  { path: 'video-gallery', component: VideoGalleryComponent },
   { path: '**', redirectTo: '/home' }
 ];
