@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-parents-view',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, HttpClientModule],
   templateUrl: './parents-view.component.html',
   styleUrl: './parents-view.component.scss'
 })
 export class ParentsViewComponent {
+  constructor(private http: HttpClient) {}
+
+
   reviews = [
     {
       name: 'Rahul Sharma',
@@ -47,6 +51,9 @@ export class ParentsViewComponent {
       rating: 5,
       text: 'A very warm and welcoming environment. The communication between the school and parents is very transparent and frequent.'
     }
+
+
+    
   ];
 
   getStars(rating: number): number[] {
@@ -63,8 +70,34 @@ export class ParentsViewComponent {
       return;
     }
     
-    console.log("Review submitted:", form.value);
-    alert("Thank you for your feedback! Your review has been submitted for moderation.");
-    form.reset();
+    const newReview = {
+      name: form.value.parentName,
+      grade: form.value.grade,
+      rating: Number(form.value.rating),
+      text: form.value.reviewText
+    };
+
+    const formData = {
+      access_key: 'c4768f21-4c1a-4f0b-82fc-55897303ebb8',
+      subject: "New Parent Review - School Website",
+      parent_name: newReview.name,
+      grade_info: newReview.grade,
+      rating: newReview.rating,
+      review_message: newReview.text
+    };
+
+    this.http.post('https://api.web3forms.com/submit', formData)
+      .subscribe({
+        next: () => {
+          alert("Thank you for your feedback! Your review has been added.");
+          form.resetForm();
+        },
+        error: () => {
+          // Fallback: still add it locally even if form submission fails (optional)
+          this.reviews.unshift(newReview);
+          alert("Your review was added. (Note: Notification failed to send but review is visible)");
+          form.resetForm();
+        }
+      });
   }
 }
