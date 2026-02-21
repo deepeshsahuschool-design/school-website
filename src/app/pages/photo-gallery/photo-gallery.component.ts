@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 })
 export class PhotoGalleryComponent {
   images: string[] = [
-    'assets/photo-gallery/image1.jpeg',
+    'https://res.cloudinary.com/doaqxjjpt/image/upload/v1771645944/image1_qynsey.jpg'
   ];
   isLightboxOpen = false;
   currentImageIndex = 0;

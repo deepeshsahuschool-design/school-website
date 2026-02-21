@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 })
 export class VideoGalleryComponent {
   videos: string[] = [
-    'assets/video-gallery/video1.mp4',
+    'https://res.cloudinary.com/doaqxjjpt/video/upload/v1771645940/video1_xzjczf.mp4',
   ];
   isLightboxOpen = false;
   currentVideoIndex = 0;
