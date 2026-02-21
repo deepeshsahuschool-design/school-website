@@ -37,7 +37,7 @@ export class OurGoverningBodyComponent {
     {
       name: 'Sharda Devi',
       designation: 'Social worker',
-      image: '',
+      image: 'https://res.cloudinary.com/doaqxjjpt/image/upload/v1771699461/Sharda_Devi_wvrlbi.jpg',
       description: 'Driven by compassion and a desire for positive change, she champions various grassroots causes with a special focus on women\'s empowerment and local health initiatives.'
     },
     {

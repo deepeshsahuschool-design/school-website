@@ -60,6 +60,11 @@
 .badge {
   font-weight: 700;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  white-space: normal; /* Allow text to wrap if it's long */
+  text-align: left;
+  line-height: 1.4;
+  display: inline-block;
+  max-width: 100%;
 }
 
 .text-white {
