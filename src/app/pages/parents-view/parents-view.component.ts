@@ -15,12 +15,7 @@ export class ParentsViewComponent {
 
 
   reviews = [
-    {
-      name: 'Rahul Sharma',
-      grade: 'Parent of Grade 2 Student',
-      rating: 5,
-      text: 'Pencil - The Creative School has been a wonderful experience for my daughter. The teachers are incredibly supportive and the creative approach to learning has really helped her excel.'
-    },
+
     {
       name: 'Priya Patel',
       grade: 'Parent of Grade 5 Student',
