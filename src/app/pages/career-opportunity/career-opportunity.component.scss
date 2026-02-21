@@ -1,0 +1,45 @@
+.a4-poster-container {
+  width: 100%;
+  aspect-ratio: 1 / 1.414; // A4 dimensions: 210 x 297 mm
+  overflow: hidden;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.a4-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; // or 'contain' if they want the whole poster to show regardless of crop
+  object-position: top;
+}
+
+.bg-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.transition-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.1) !important;
+  }
+}
+
+.form-control, .form-select {
+  padding: 0.75rem 1rem;
+  border-color: #e9ecef;
+  
+  &:focus {
+    border-color: #F5A623; // Secondary color
+    box-shadow: 0 0 0 0.25rem rgba(245, 166, 35, 0.25);
+  }
+}

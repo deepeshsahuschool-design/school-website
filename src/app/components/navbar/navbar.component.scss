@@ -1,9 +1,31 @@
-.navbar-brand img {
-  max-height: 80px; /* Adjust as needed, slightly larger than the fixed height for flexibility */
-  height: auto; /* Ensure height adjusts based on max-height and width */
-  width: auto; /* Maintain aspect ratio */
+.navbar {
+  min-height: 80px;
 }
 
-.navbar {
-  min-height: 80px; /* Ensure the navbar has enough height to contain the logo */
+.navbar-nav {
+  font-size: 1rem; /* Restored to original font size */
+}
+
+.nav-link {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: #4A90E2 !important;
+  }
+}
+
+/* For smaller desktops, reduce padding even further to prevent wrapping */
+@media (min-width: 992px) and (max-width: 1400px) {
+  .nav-link {
+    padding-left: 0.35rem !important;
+    padding-right: 0.35rem !important;
+  }
+}
+
+.navbar-brand img {
+  max-height: 60px;
+  height: auto;
+  width: auto;
 }

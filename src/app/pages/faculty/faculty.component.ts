@@ -35,6 +35,11 @@ export class FacultyComponent {
       name: 'Rashmi Yadav',
       role: 'Primary Teacher',
       description: 'Building strong academic foundations in core subjects while encouraging curiosity, critical thinking, and a love for learning.'
+    },
+    {
+      name: 'Pihu Jaiswal',
+      role: 'Art and Craft Teacher',
+      description: 'Fostering creativity and self-expression through various art forms, helping students explore their artistic potential.'
     }
     
   ];

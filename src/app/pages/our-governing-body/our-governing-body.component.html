@@ -1,0 +1,35 @@
+<header class="bg-primary text-white py-5 mb-5 position-relative overflow-hidden">
+  <div class="bg-pattern" style="opacity: 0.2"></div>
+  <div class="container text-center position-relative z-1 py-3">
+    <h6 class="text-uppercase ls-1 text-warning fw-bold mb-3">Governing Body</h6>
+    <h1 class="display-4 fw-bold mb-2 text-white">{{ societyName }}</h1>
+    <p class="lead mb-0">The visionaries leading our mission of excellence.</p>
+  </div>
+</header>
+
+<div class="container mb-5">
+  <div class="row g-4">
+    @for (member of members; track member.name) {
+      <div class="col-12 col-xl-6">
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 transition-card">
+          <div class="row g-0 h-100">
+            <div class="col-md-5">
+              <!-- Using a background-image div for better control over aspect ratio and positioning -->
+              <div class="member-photo-wrapper" [style.backgroundImage]="'url(' + member.image + ')'" [attr.aria-label]="member.name">
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="card-body p-4 p-lg-5 d-flex flex-column h-100 justify-content-center">
+                <div class="mb-3">
+                  <h3 class="fw-bold mb-1 text-primary">{{ member.name }}</h3>
+                  <span class="badge bg-secondary rounded-pill px-3 py-2 text-white text-uppercase ls-1">{{ member.designation }}</span>
+                </div>
+                <p class="text-muted mb-0 lead-small">{{ member.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

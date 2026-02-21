@@ -8,6 +8,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { PhotoGalleryComponent } from './pages/photo-gallery/photo-gallery.component';
 import { VideoGalleryComponent } from './pages/video-gallery/video-gallery.component';
 import { ParentsViewComponent } from './pages/parents-view/parents-view.component';
+import { CareerOpportunityComponent } from './pages/career-opportunity/career-opportunity.component';
+import { OurGoverningBodyComponent } from './pages/our-governing-body/our-governing-body.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,9 +18,11 @@ export const routes: Routes = [
   { path: 'academics', component: AcademicsComponent },
   { path: 'admissions', component: AdmissionsComponent },
   { path: 'faculty', component: FacultyComponent },
+  { path: 'our-governing-body', component: OurGoverningBodyComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'photo-gallery', component: PhotoGalleryComponent },
   { path: 'video-gallery', component: VideoGalleryComponent },
   { path: 'parents-view', component: ParentsViewComponent },
+  { path: 'career-opportunity', component: CareerOpportunityComponent },
   { path: '**', redirectTo: '/home' }
 ];

@@ -1,0 +1,59 @@
+<header class="bg-primary text-white py-5 mb-5 position-relative overflow-hidden">
+  <div class="bg-pattern" style="opacity: 0.2"></div>
+  <div class="container text-center position-relative z-1">
+    <h1 class="display-4 fw-bold">Career Opportunities</h1>
+    <p class="lead mb-0">Join our team of dedicated educators and professionals.</p>
+  </div>
+</header>
+
+<div class="container mb-5">
+  <div class="row g-5 align-items-center">
+    <!-- Poster Column -->
+    <div class="col-lg-6">
+      <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-0">
+        <div class="a4-poster-container">
+          <img src="https://res.cloudinary.com/doaqxjjpt/image/upload/v1771695508/Career_nbihrv.jpg" alt="Career Poster" class="a4-poster">
+        </div>
+      </div>
+    </div>
+
+    <!-- Application Form Column -->
+    <div class="col-lg-6">
+      <div class="bg-white p-5 rounded-4 shadow-lg border-top border-5 border-secondary">
+        <h2 class="fw-bold mb-4">Apply Now</h2>
+        <form #careerForm="ngForm" (ngSubmit)="submitApplication(careerForm)">
+          <div class="mb-3">
+            <label for="fullName" class="form-label fw-bold">Full Name</label>
+            <input type="text" class="form-control rounded-3" id="fullName" name="fullName" ngModel required #name="ngModel" placeholder="Enter your full name">
+          </div>
+          
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <label for="email" class="form-label fw-bold">Email Address</label>
+              <input type="email" class="form-control rounded-3" id="email" name="email" ngModel required email #email="ngModel" placeholder="name@example.com">
+            </div>
+            <div class="col-md-6">
+              <label for="phone" class="form-label fw-bold">Phone Number</label>
+              <input type="tel" class="form-control rounded-3" id="phone" name="phone" ngModel required #phone="ngModel" placeholder="Enter your phone number">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="resume" class="form-label fw-bold">Upload Resume (PDF/DOC)</label>
+            <input class="form-control rounded-3" type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+            <small class="text-muted">Maximum file size: 2MB</small>
+          </div>
+
+          <div class="mb-4">
+            <label for="message" class="form-label fw-bold">Why do you want to join us?</label>
+            <textarea class="form-control rounded-3" id="message" name="message" rows="4" ngModel required #msg="ngModel" placeholder="Briefly describe your motivation..."></textarea>
+          </div>
+
+          <div class="d-grid">
+            <button type="submit" class="btn btn-secondary btn-lg rounded-pill fw-bold" [disabled]="careerForm.invalid">Submit Application</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
