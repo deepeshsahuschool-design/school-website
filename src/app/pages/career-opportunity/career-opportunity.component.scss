@@ -25,21 +25,56 @@
   background-size: 24px 24px;
 }
 
-.transition-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.step-num {
+  width: 40px;
+  height: 40px;
+  background-color: #4A90E2; // $primary
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  flex-shrink: 0;
+  font-family: 'Comic Neue', cursive;
+}
+
+.btn-white {
+  background-color: white;
+  color: #F5A623; // $secondary
+  border: none;
   
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 1rem 3rem rgba(0,0,0,.1) !important;
+    background-color: #f8f9fa;
+    color: #F5A623;
   }
 }
 
-.form-control, .form-select {
-  padding: 0.75rem 1rem;
-  border-color: #e9ecef;
-  
-  &:focus {
-    border-color: #F5A623; // Secondary color
-    box-shadow: 0 0 0 0.25rem rgba(245, 166, 35, 0.25);
+.hover-up {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
   }
+}
+
+.opacity-90 {
+  opacity: 0.9;
+}
+
+.ls-1 {
+  letter-spacing: 1px;
+}
+
+.bg-secondary {
+  background-color: #F5A623 !important;
 }

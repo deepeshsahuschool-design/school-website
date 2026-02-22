@@ -1,59 +1,142 @@
 <header class="bg-primary text-white py-5 mb-5 position-relative overflow-hidden">
   <div class="bg-pattern" style="opacity: 0.2"></div>
   <div class="container text-center position-relative z-1">
-    <h1 class="display-4 fw-bold">Career Opportunities</h1>
-    <p class="lead mb-0">Join our team of dedicated educators and professionals.</p>
+    <h1 class="display-4 fw-bold">Join Our Faculty</h1>
+    <p class="lead mb-0">Help us shape the future, one young mind at a time.</p>
   </div>
 </header>
 
 <div class="container mb-5">
-  <div class="row g-5 align-items-center">
-    <!-- Poster Column -->
-    <div class="col-lg-6">
-      <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-0">
+  <!-- Explain Section: Our Philosophy -->
+  <div class="row align-items-center mb-5 pb-5">
+    <div class="col-lg-6 order-lg-2">
+      <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-4 mb-lg-0">
         <div class="a4-poster-container">
           <img src="https://res.cloudinary.com/doaqxjjpt/image/upload/v1771695508/Career_nbihrv.jpg" alt="Career Poster" class="a4-poster">
         </div>
       </div>
     </div>
+    <div class="col-lg-6 order-lg-1 pe-lg-5">
+      <h6 class="text-secondary fw-bold text-uppercase ls-1">Our Philosophy</h6>
+      <h2 class="fw-bold mb-4 text-primary">Nurturing the Next Generation</h2>
+      <p class="fs-5 text-muted mb-4">
+        At Pencil - The Creative School, we believe that the early years (Nursery to Class 5) are the most critical in a child's development. Our mission is to provide a holistic education that balances academic excellence with character building.
+      </p>
+      <p class="text-muted">
+        As a member of our team, you aren't just a teacher; you are a mentor, a guide, and a source of inspiration. We foster an environment where curiosity is celebrated, and every child feels safe to explore their potential.
+      </p>
+    </div>
+  </div>
 
-    <!-- Application Form Column -->
-    <div class="col-lg-6">
-      <div class="bg-white p-5 rounded-4 shadow-lg border-top border-5 border-secondary">
-        <h2 class="fw-bold mb-4">Apply Now</h2>
-        <form #careerForm="ngForm" (ngSubmit)="submitApplication(careerForm)">
-          <div class="mb-3">
-            <label for="fullName" class="form-label fw-bold">Full Name</label>
-            <input type="text" class="form-control rounded-3" id="fullName" name="fullName" ngModel required #name="ngModel" placeholder="Enter your full name">
+  <!-- Attract Section: Why Join Us? -->
+  <div class="bg-light rounded-5 p-5 mb-5 shadow-sm border border-white border-5">
+    <div class="text-center mb-5">
+      <h6 class="text-secondary fw-bold text-uppercase ls-1">Why Pencil?</h6>
+      <h2 class="fw-bold">A Great Place to Grow</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="text-center">
+          <div class="feature-icon bg-white text-primary rounded-circle mb-3 mx-auto shadow-sm">
+            <i class="bi bi-heart-fill fs-3"></i>
           </div>
-          
-          <div class="row g-3 mb-3">
-            <div class="col-md-6">
-              <label for="email" class="form-label fw-bold">Email Address</label>
-              <input type="email" class="form-control rounded-3" id="email" name="email" ngModel required email #email="ngModel" placeholder="name@example.com">
-            </div>
-            <div class="col-md-6">
-              <label for="phone" class="form-label fw-bold">Phone Number</label>
-              <input type="tel" class="form-control rounded-3" id="phone" name="phone" ngModel required #phone="ngModel" placeholder="Enter your phone number">
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <label for="resume" class="form-label fw-bold">Upload Resume (PDF/DOC)</label>
-            <input class="form-control rounded-3" type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
-            <small class="text-muted">Maximum file size: 2MB</small>
-          </div>
-
-          <div class="mb-4">
-            <label for="message" class="form-label fw-bold">Why do you want to join us?</label>
-            <textarea class="form-control rounded-3" id="message" name="message" rows="4" ngModel required #msg="ngModel" placeholder="Briefly describe your motivation..."></textarea>
-          </div>
-
-          <div class="d-grid">
-            <button type="submit" class="btn btn-secondary btn-lg rounded-pill fw-bold" [disabled]="careerForm.invalid">Submit Application</button>
-          </div>
-        </form>
+          <h4 class="fw-bold">Supportive Culture</h4>
+          <p class="text-muted small px-3">We believe in a "family-first" approach, supporting our teachers' well-being as much as our students'.</p>
+        </div>
       </div>
+      <div class="col-md-4">
+        <div class="text-center">
+          <div class="feature-icon bg-white text-secondary rounded-circle mb-3 mx-auto shadow-sm">
+            <i class="bi bi-stars fs-3"></i>
+          </div>
+          <h4 class="fw-bold">Professional Growth</h4>
+          <p class="text-muted small px-3">Access to regular workshops and training programs to keep you at the forefront of modern pedagogy.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-center">
+          <div class="feature-icon bg-white text-success rounded-circle mb-3 mx-auto shadow-sm">
+            <i class="bi bi-lightning-fill fs-3"></i>
+          </div>
+          <h4 class="fw-bold">Creative Freedom</h4>
+          <p class="text-muted small px-3">We encourage innovative teaching methods. Bring your unique ideas to life in our classrooms.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Build Trust Section: Who we look for -->
+  <div class="row mb-5 py-4">
+    <div class="col-lg-5 mb-4 mb-lg-0">
+      <div class="bg-primary text-white p-5 rounded-4 shadow h-100">
+        <h3 class="fw-bold mb-4">Who are we looking for?</h3>
+        <ul class="list-unstyled mb-0">
+          <li class="mb-3 d-flex align-items-start">
+            <i class="bi bi-check-circle-fill me-3 text-warning"></i>
+            <span>Passionate educators who genuinely love working with young children.</span>
+          </li>
+          <li class="mb-3 d-flex align-items-start">
+            <i class="bi bi-check-circle-fill me-3 text-warning"></i>
+            <span>Excellent communication skills and a patient, empathetic personality.</span>
+          </li>
+          <li class="mb-3 d-flex align-items-start">
+            <i class="bi bi-check-circle-fill me-3 text-warning"></i>
+            <span>A commitment to creating a safe and inclusive learning environment.</span>
+          </li>
+          <li class="d-flex align-items-start">
+            <i class="bi bi-check-circle-fill me-3 text-warning"></i>
+            <span>Team players who are eager to collaborate and grow together.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg-7 ps-lg-5 d-flex flex-column justify-content-center">
+      <h6 class="text-secondary fw-bold text-uppercase ls-1">The Application Process</h6>
+      <h2 class="fw-bold mb-4">Simple & Transparent</h2>
+      <div class="process-steps">
+        <div class="step mb-4 d-flex">
+          <div class="step-num me-4">1</div>
+          <div>
+            <h5 class="fw-bold mb-1">Online Application</h5>
+            <p class="text-muted mb-0">Fill out our digital form and upload your latest resume/CV.</p>
+          </div>
+        </div>
+        <div class="step mb-4 d-flex">
+          <div class="step-num me-4">2</div>
+          <div>
+            <h5 class="fw-bold mb-1">Portfolio Review</h5>
+            <p class="text-muted mb-0">Our leadership team carefully reviews every application against our core values.</p>
+          </div>
+        </div>
+        <div class="step d-flex">
+          <div class="step-num me-4">3</div>
+          <div>
+            <h5 class="fw-bold mb-1">Personal Interaction</h5>
+            <p class="text-muted mb-0">Selected candidates are invited for a conversation and a classroom demonstration.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Section -->
+  <div class="card border-0 shadow-lg rounded-5 overflow-hidden bg-secondary text-white text-center py-5">
+    <div class="card-body py-4 px-4">
+      <h2 class="display-5 fw-bold mb-3">Ready to Make a Difference?</h2>
+      <p class="fs-5 mb-4 opacity-90 mx-auto" style="max-width: 700px;">
+        Your journey towards a rewarding career in education starts here. Join our community of dedicated professionals today.
+      </p>
+      <div class="alert alert-light text-dark d-inline-block rounded-pill px-4 mb-4 fw-medium border-0 shadow-sm">
+        <i class="bi bi-info-circle-fill me-2 text-primary"></i>
+        Redirects to secure Google Form for resume upload
+      </div>
+      <br>
+      <a href="https://forms.gle/xJ2eZzxYyyC9iwrT8"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-white btn-lg rounded-pill fw-bold px-5 py-3 shadow-lg hover-up">
+        Apply Now & Upload Resume
+      </a>
     </div>
   </div>
 </div>

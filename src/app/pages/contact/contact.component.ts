@@ -1,15 +1,13 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
-  imports: [FormsModule, HttpClientModule],
+  imports: [FormsModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
-  constructor(private http: HttpClient) {}
 
   submitContact(form: any) {
 
@@ -18,27 +16,32 @@ export class ContactComponent {
       return;
     }
 
-    const formData = {
-      access_key: 'c4768f21-4c1a-4f0b-82fc-55897303ebb8',
+    const googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLScIRa2Qgn45Nv4hZZF47wcnmkj2hE741BgfDbmhPZ6qk_wJMA/formResponse";
 
-      subject: "New Contact Message - School Website",
+    const formData = new FormData();
 
-      name: form.value.firstName + " " + form.value.lastName,
-      email: form.value.email,
-      message: form.value.message,
-      user_subject: form.value.subject
-    };
+    // combine first + last name
+    const fullName = form.value.firstName + " " + form.value.lastName;
 
-    this.http.post('https://api.web3forms.com/submit', formData)
-      .subscribe({
-        next: () => {
-          alert("Message sent successfully! We will contact you soon.");
-          form.reset();
-        },
-        error: () => {
-          alert("Something went wrong. Please try again later.");
-        }
-      });
+    // Replace entry IDs with YOUR real ones
+    formData.append("entry.544682764", fullName);
+    formData.append("entry.1794944016", form.value.email);
+    formData.append("entry.283975819", form.value.subject);
+    formData.append("entry.118187251", form.value.message);
+
+    fetch(googleFormURL, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData
+    })
+    .then(() => {
+      alert("Message sent successfully! We will contact you soon.");
+      form.resetForm();
+    })
+    .catch(() => {
+      alert("Submission failed. Please try again later.");
+    });
   }
+
 
 }

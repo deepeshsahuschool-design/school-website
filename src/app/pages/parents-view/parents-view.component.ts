@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-parents-view',
   standalone: true,
-  imports: [FormsModule, CommonModule, HttpClientModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './parents-view.component.html',
   styleUrl: './parents-view.component.scss'
 })
 export class ParentsViewComponent {
-  constructor(private http: HttpClient) {}
 
 
   reviews = [
@@ -60,39 +58,33 @@ export class ParentsViewComponent {
   }
 
   submitReview(form: NgForm) {
-    if (form.invalid) {
-      alert("Please fill all required fields correctly.");
-      return;
-    }
-    
-    const newReview = {
-      name: form.value.parentName,
-      grade: form.value.grade,
-      rating: Number(form.value.rating),
-      text: form.value.reviewText
-    };
 
-    const formData = {
-      access_key: 'c4768f21-4c1a-4f0b-82fc-55897303ebb8',
-      subject: "New Parent Review - School Website",
-      parent_name: newReview.name,
-      grade_info: newReview.grade,
-      rating: newReview.rating,
-      review_message: newReview.text
-    };
-
-    this.http.post('https://api.web3forms.com/submit', formData)
-      .subscribe({
-        next: () => {
-          alert("Thank you for your feedback! Your review has been added.");
-          form.resetForm();
-        },
-        error: () => {
-          // Fallback: still add it locally even if form submission fails (optional)
-          this.reviews.unshift(newReview);
-          alert("Your review was added. (Note: Notification failed to send but review is visible)");
-          form.resetForm();
-        }
-      });
+  if (form.invalid) {
+    alert("Please fill all required fields correctly.");
+    return;
   }
+
+  const googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSf5sDXXv9jlc6AQFyx6JZANBcSJY6R7vg6pCjWT3XtH87eBQA/formResponse";
+
+  const formData = new FormData();
+
+  // Replace entry IDs with YOUR actual ones
+  formData.append("entry.1815625746", form.value.parentName);
+  formData.append("entry.1668122268", form.value.grade);
+  formData.append("entry.1200143328", form.value.rating);
+  formData.append("entry.845212050", form.value.reviewText);
+
+  fetch(googleFormURL, {
+    method: "POST",
+    mode: "no-cors",
+    body: formData
+  })
+  .then(() => {
+    alert("Thank you for your feedback! After verification, your review may appear on the website.");
+    form.resetForm();
+  })
+  .catch(() => {
+    alert("Submission failed. Please try again.");
+  });
+}
 }

@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @Component({
   selector: 'app-admissions',
-  imports: [FormsModule, HttpClientModule],
+  imports: [FormsModule],
   templateUrl: './admissions.component.html',
   styleUrl: './admissions.component.scss'
 })
 export class AdmissionsComponent {
-  constructor(private http: HttpClient) {}
 
   submitForm(form: any) {
 
@@ -19,29 +17,29 @@ export class AdmissionsComponent {
       return;
     }
 
-    const formData = {
-      access_key: 'c4768f21-4c1a-4f0b-82fc-55897303ebb8',
+    const googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSeuKd_t0F2PeolXpkxGTFiGuwTd2fVItdQx24Kc1BeLeO-_gw/formResponse";
 
-      subject: "New Admission Enquiry - School Website",
+    const formData = new FormData();
 
-      parent_name: form.value.parentName,
-      child_name: form.value.childName,
-      class_applying: form.value.classApplying,
-      phone: form.value.phone,
-      email: form.value.email
-    };
+    // REPLACE entry numbers with YOUR entry IDs
+    formData.append("entry.516505484", form.value.parentName);
+    formData.append("entry.331119834", form.value.childName);
+    formData.append("entry.479078868", form.value.classApplying);
+    formData.append("entry.2079678733", form.value.phone);
+    formData.append("entry.245008877", form.value.email);
 
-    this.http.post('https://api.web3forms.com/submit', formData)
-      .subscribe({
-        next: () => {
-          alert("Inquiry submitted successfully! We will contact you soon.");
-          form.reset();
-        },
-        error: () => {
-          alert("Something went wrong. Please try again.");
-        }
-      });
+    fetch(googleFormURL, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData
+    })
+    .then(() => {
+      alert("Admission Inquiry submitted successfully! We will contact you soon.");
+      form.resetForm();
+    })
+    .catch(() => {
+      alert("Submission failed. Please try again.");
+    });
   }
 
-  
 }
