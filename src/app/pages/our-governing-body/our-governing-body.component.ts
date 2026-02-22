@@ -15,7 +15,7 @@ export class OurGoverningBodyComponent {
     {
       name: 'Mrs. Shikha Dewangan',
       designation: 'President',
-      image: '',
+      image: 'https://res.cloudinary.com/doaqxjjpt/image/upload/v1771779239/Shikha_hcaitr.jpg',
       description: 'An experienced education mentor and leader who guides the overall vision of the institution. She ensures a safe, nurturing, and child-friendly learning environment while promoting academic excellence, value-based education, and holistic development for young learners.'
     },
     {
@@ -27,7 +27,7 @@ export class OurGoverningBodyComponent {
     {
       name: 'Rajesh Kashyap',
       designation: 'Secretary',
-      image: '',
+      image: 'https://res.cloudinary.com/doaqxjjpt/image/upload/v1771779239/Rajesh_twrxkc.jpg',
       description: 'Responsible for the administrative coordination of the school, he manages official documentation, communication, and regulatory compliance. He actively oversees daily operations and ensures smooth functioning between management, staff, and parents.'
     },
     {
