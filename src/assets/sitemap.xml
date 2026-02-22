@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://pencilschool.vercel.app/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://pencilschool.vercel.app/about</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://pencilschool.vercel.app/admissions</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pencilschool.vercel.app/home</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pencilschool.vercel.app/our-governing-body</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pencilschool.vercel.app/academics</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pencilschool.vercel.app/faculty</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pencilschool.vercel.app/parents-view</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pencilschool.vercel.app/career-opportunity</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pencilschool.vercel.app/photo-gallery</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pencilschool.vercel.app/video-gallery</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pencilschool.vercel.app/contact</loc>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
