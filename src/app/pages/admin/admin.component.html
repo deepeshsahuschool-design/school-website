@@ -1,0 +1,279 @@
+<div class="container py-5">
+  <div class="row mb-5">
+    <div class="col-12 text-center position-relative">
+      <h1 class="display-4 fw-bold text-primary">Admin Dashboard</h1>
+      <p class="text-muted">Manage your website content dynamically.</p>
+      <button class="btn btn-outline-danger btn-sm rounded-pill position-absolute top-0 end-0 mt-3" (click)="logout()">
+        <i class="bi bi-box-arrow-right me-1"></i> Logout
+      </button>
+    </div>
+  </div>
+
+  <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+    <div class="card-header bg-white border-0 p-0">
+      <ul class="nav nav-pills nav-fill p-2 bg-light" id="adminTabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="notif-tab" data-bs-toggle="pill" href="#notif" role="tab">Notifications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="faculty-tab" data-bs-toggle="pill" href="#faculty" role="tab">Faculty</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="gallery-tab" data-bs-toggle="pill" href="#gallery" role="tab">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="reviews-tab" data-bs-toggle="pill" href="#reviews" role="tab">Reviews</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="careers-tab" data-bs-toggle="pill" href="#careers" role="tab">Careers</a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="card-body p-4 p-lg-5">
+      <div class="tab-content" id="adminTabsContent">
+        
+        <!-- Notifications Tab -->
+        <div class="tab-pane fade show active" id="notif" role="tabpanel">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-bold mb-0">Manage Notifications</h3>
+            <button class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#addNotifModal">Add Notification</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Date & Time</th>
+                  <th>Title</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (notif of notifications; track notif.id) {
+                <tr>
+                  <td>{{ notif.date }}</td>
+                  <td>{{ notif.title }}</td>
+                  <td><button class="btn btn-sm btn-outline-danger rounded-pill" (click)="deleteNotification(notif.id!)">Delete</button></td>
+                </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Faculty Tab -->
+        <div class="tab-pane fade" id="faculty" role="tabpanel">
+           <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-bold mb-0">Manage Faculty</h3>
+            <button class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#addTeacherModal">Add Teacher</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Role</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (teacher of faculty; track teacher.id) {
+                 <tr>
+                  <td>{{ teacher.name }}</td>
+                  <td>{{ teacher.role }}</td>
+                  <td><button class="btn btn-sm btn-outline-danger rounded-pill" (click)="deleteTeacher(teacher.id!)">Delete</button></td>
+                </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Gallery Tab -->
+        <div class="tab-pane fade" id="gallery" role="tabpanel">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-bold mb-0">Manage Gallery</h3>
+            <div class="btn-group">
+              <button class="btn btn-primary rounded-pill-start" (click)="uploadMedia('image')">Add Photo</button>
+              <button class="btn btn-secondary rounded-pill-end" (click)="uploadMedia('video')">Add Video</button>
+            </div>
+          </div>
+          <div class="row g-3">
+            @for (item of gallery; track item.id) {
+            <div class="col-md-3">
+              <div class="card border-0 shadow-sm position-relative">
+                <img *ngIf="item.type === 'image'" [src]="item.url" class="card-img-top rounded-3" style="height: 150px; object-fit: cover;">
+                <video *ngIf="item.type === 'video'" [src]="item.url" class="card-img-top rounded-3" style="height: 150px; object-fit: cover;"></video>
+                <button class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2 rounded-circle" (click)="deleteGalleryItem(item.id!)"><i class="bi bi-trash"></i></button>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+
+        <!-- Reviews Tab -->
+        <div class="tab-pane fade" id="reviews" role="tabpanel">
+          <h3 class="fw-bold mb-4">Approve Reviews</h3>
+          <p class="text-muted mb-4">New reviews submitted by parents will appear here for approval.</p>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Parent of (Grade/Class)</th>
+                  <th>Rating</th>
+                  <th>Review</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (review of reviews; track review.id) {
+                <tr>
+                  <td>{{ review.name }}</td>
+                  <td>{{ review.grade }}</td>
+                  <td>
+                    <span class="text-warning">
+                      {{ review.rating }} <i class="bi bi-star-fill"></i>
+                    </span>
+                  </td>
+                  <td class="small">{{ review.text }}</td>
+                  <td>
+                    <span class="badge" [ngClass]="review.status === 'approved' ? 'bg-success' : 'bg-warning'">{{ review.status }}</span>
+                  </td>
+                  <td>
+                    <button *ngIf="review.status === 'pending'" class="btn btn-success btn-sm me-2 rounded-pill" (click)="approveReview(review.id!)">Approve</button>
+                    <button class="btn btn-outline-danger btn-sm rounded-pill" (click)="deleteReview(review.id!)">Delete</button>
+                  </td>
+                </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Careers Tab -->
+        <div class="tab-pane fade" id="careers" role="tabpanel">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-bold mb-0">Manage Vacancies</h3>
+            <button class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#addVacancyModal">Add Vacancy</button>
+          </div>
+          <div class="list-group">
+            @for (v of vacancies; track v.id) {
+            <div class="list-group-item d-flex justify-content-between align-items-center rounded-3 mb-2 border-0 bg-light p-3">
+              <div>
+                <h5 class="fw-bold mb-0">{{ v.title }} <span class="badge bg-primary ms-2">{{ v.count }} Openings</span></h5>
+                <small class="text-muted">{{ v.active ? 'Visible' : 'Hidden' }}</small>
+              </div>
+              <div class="d-flex align-items-center gap-3">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" [checked]="v.active" (change)="toggleVacancy(v.id!, !v.active)">
+                </div>
+                <button class="btn btn-sm btn-outline-danger rounded-circle" (click)="deleteVacancy(v.id!)"><i class="bi bi-trash"></i></button>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Vacancy Modal -->
+<div class="modal fade" id="addVacancyModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-4 border-0">
+      <div class="modal-header">
+        <h5 class="fw-bold">Add New Job Opening</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form #vacancyForm="ngForm" (ngSubmit)="addVacancy(vacancyForm)">
+          <div class="mb-3">
+            <label class="form-label">Job Title</label>
+            <input type="text" class="form-control" name="title" ngModel required placeholder="e.g. Primary Teacher">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Number of Openings (Optional)</label>
+            <input type="number" class="form-control" name="count" ngModel min="1" placeholder="Defaults to 1">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Description / Requirements (Optional)</label>
+            <textarea class="form-control" name="description" rows="3" ngModel placeholder="e.g. B.Ed required, 2 years experience"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 rounded-pill" data-bs-dismiss="modal">Post Vacancy</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Notification Modal -->
+<div class="modal fade" id="addNotifModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-4 border-0">
+      <div class="modal-header">
+        <h5 class="fw-bold">Add New Notification</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form #notifForm="ngForm" (ngSubmit)="addNotification(notifForm)">
+          <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" name="title" ngModel required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Content</label>
+            <textarea class="form-control" name="content" rows="3" ngModel required></textarea>
+          </div>
+          <div class="mb-4">
+            <label class="form-label d-block">Attachment (Optional)</label>
+            <div class="btn-group mb-2">
+              <button type="button" class="btn btn-outline-secondary btn-sm" (click)="uploadAttachment('pdf')">
+                <i class="bi bi-file-earmark-pdf me-1"></i> PDF
+              </button>
+              <button type="button" class="btn btn-outline-secondary btn-sm" (click)="uploadAttachment('image')">
+                <i class="bi bi-image me-1"></i> Image
+              </button>
+            </div>
+            <div *ngIf="pendingAttachmentUrl" class="text-success small">
+              <i class="bi bi-check-circle-fill me-1"></i> {{ pendingAttachmentType?.toUpperCase() }} Attached Successfully
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 rounded-pill" data-bs-dismiss="modal">Post Notification</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Teacher Modal -->
+<div class="modal fade" id="addTeacherModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-4 border-0">
+      <div class="modal-header">
+        <h5 class="fw-bold">Add New Faculty Member</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form #teacherForm="ngForm" (ngSubmit)="addTeacher(teacherForm)">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" ngModel required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Role</label>
+            <input type="text" class="form-control" name="role" ngModel required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" name="description" rows="3" ngModel required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 rounded-pill" data-bs-dismiss="modal">Add to Faculty</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

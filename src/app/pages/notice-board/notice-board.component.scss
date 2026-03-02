@@ -1,0 +1,82 @@
+.notice-board-page {
+  background: radial-gradient(#4A90E2 0.5px, transparent 0.5px), radial-gradient(#4A90E2 0.5px, #f8f9fa 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  opacity: 1;
+}
+
+.notice-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 6px solid #4A90E2; /* Slightly thicker to match portal style */
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  h1, h2 {
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+  }
+
+  .card-title {
+    font-size: 1.5rem; /* Reduced from 1.75rem */
+    color: #4A90E2; 
+  }
+
+  .card-text {
+    font-family: 'Nunito', sans-serif;
+    color: #444;
+    line-height: 1.6;
+    font-size: 1rem; /* Reduced from 1.1rem */
+    white-space: pre-line;
+  }
+}
+
+.badge-new {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.4em 0.8em;
+  animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 82, 82, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 82, 82, 0); }
+}
+
+.ls-1 {
+  letter-spacing: 1px;
+}
+
+.preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.preview-content {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  padding: 20px;
+}
+
+.preview-container {
+  width: 100%;
+  height: 100%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

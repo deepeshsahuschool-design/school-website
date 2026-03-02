@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AuditLogService } from '../../services/audit-log.service';
 
 @Component({
   selector: 'app-contact',
@@ -8,6 +9,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
+
+  constructor(private auditLog: AuditLogService) {}
 
   submitContact(form: any) {
 
@@ -22,6 +25,8 @@ export class ContactComponent {
 
     // combine first + last name
     const fullName = form.value.firstName + " " + form.value.lastName;
+
+    this.auditLog.logAction('CONTACT_FORM_SUBMIT', `Message from ${fullName} (${form.value.email}) - Subject: ${form.value.subject}`);
 
     // Replace entry IDs with YOUR real ones
     formData.append("entry.544682764", fullName);

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-video-gallery',
@@ -7,13 +8,20 @@ import { CommonModule } from '@angular/common';
   templateUrl: './video-gallery.component.html',
   styleUrl: './video-gallery.component.scss'
 })
-export class VideoGalleryComponent {
-  videos: string[] = [
-    'https://res.cloudinary.com/doaqxjjpt/video/upload/v1771695516/Upcoming_gepqew.mp4',
-    'https://res.cloudinary.com/doaqxjjpt/video/upload/v1771645940/video1_xzjczf.mp4',
-  ];
+export class VideoGalleryComponent implements OnInit {
+  videos: string[] = [];
   isLightboxOpen = false;
   currentVideoIndex = 0;
+  isLoading = true;
+
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    this.dataService.getGallery().subscribe(data => {
+      this.videos = data.filter(item => item.type === 'video').map(item => item.url);
+      this.isLoading = false;
+    });
+  }
 
   openLightbox(index: number): void {
     this.currentVideoIndex = index;

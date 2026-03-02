@@ -1,3 +1,19 @@
+<div class="top-bar bg-primary text-white py-1 d-none d-lg-block">
+  <div class="container-fluid px-lg-4">
+    <div class="d-flex justify-content-between align-items-center small">
+      <div class="d-flex gap-4">
+        <span><i class="bi bi-telephone-fill me-1"></i> +91 7987238936</span>
+        <span><i class="bi bi-envelope-fill me-1"></i> praganyaacademy&#64;gmail.com</span>
+      </div>
+      <div>
+        <a routerLink="/login" class="text-white text-decoration-none fw-bold">
+          <i class="bi bi-person-fill me-1"></i> Staff Login
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
   <div class="container-fluid px-lg-4">
     <a class="navbar-brand d-flex align-items-center" routerLink="/">
@@ -17,6 +33,9 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold">
         <li class="nav-item">
           <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/notice-board" routerLinkActive="active">Notice Board</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/about" routerLinkActive="active">About Us</a>
@@ -44,6 +63,11 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link text-primary fw-bold" routerLink="/login" routerLinkActive="active">
+            <i class="bi bi-person-fill me-1"></i> Staff Login
+          </a>
         </li>
         <li class="nav-item ms-lg-1">
           <a class="btn btn-warning rounded-pill px-3 py-1 text-white fw-bold" style="font-size: 0.95rem;" routerLink="/admissions">Admissions Open</a>

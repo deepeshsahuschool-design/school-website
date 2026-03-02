@@ -1,0 +1,42 @@
+<div class="login-page d-flex align-items-center justify-content-center min-vh-100 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-5 col-lg-4">
+        <div class="card border-0 shadow-lg rounded-4 p-4 p-lg-5">
+          <div class="text-center mb-4">
+            <h2 class="fw-bold text-primary">Admin Login</h2>
+            <p class="text-muted small">Only authorized users can access this page.</p>
+          </div>
+
+          <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+            <div *ngIf="error" class="alert alert-danger py-2 small rounded-3 mb-4">
+              {{ error }}
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small fw-bold text-muted">Email Address</label>
+              <input type="email" name="email" ngModel required class="form-control rounded-3">
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label small fw-bold text-muted">Password</label>
+              <input type="password" name="password" ngModel required class="form-control rounded-3">
+            </div>
+
+            <div id="recaptcha-container" class="mb-4 d-flex justify-content-center"></div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary btn-lg rounded-pill fw-bold" [disabled]="loginForm.invalid || !recaptchaToken">
+                Login
+              </button>
+            </div>
+            
+            <div class="text-center mt-4">
+              <a routerLink="/" class="text-decoration-none small text-secondary">Back to Website</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

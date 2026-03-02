@@ -1,0 +1,55 @@
+.nav-pills .nav-link {
+  color: #6c757d;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  
+  &.active {
+    background-color: #4A90E2;
+    color: white;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+  }
+
+  &:hover:not(.active) {
+    background-color: #e9ecef;
+  }
+}
+
+.table {
+  vertical-align: middle;
+  
+  th {
+    border-top: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    color: #adb5bd;
+  }
+}
+
+.modal-content {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.btn-group .btn {
+  &.rounded-pill-start {
+    border-top-left-radius: 50rem !important;
+    border-bottom-left-radius: 50rem !important;
+  }
+  &.rounded-pill-end {
+    border-top-right-radius: 50rem !important;
+    border-bottom-right-radius: 50rem !important;
+  }
+}
+
+.form-control, .form-select {
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e9ecef;
+  
+  &:focus {
+    box-shadow: 0 0 0 0.25rem rgba(74, 144, 226, 0.1);
+    border-color: #4A90E2;
+  }
+}
